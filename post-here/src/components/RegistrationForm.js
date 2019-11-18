@@ -51,6 +51,7 @@ const UserForm = ({errors, touched, status}) => {
 }
 
 
+
 const RegistrationForm = withFormik({
     mapPropsToValues({username, fname, lname, email, password}) {
         return{
@@ -66,8 +67,8 @@ const RegistrationForm = withFormik({
         username: Yup.string().required(),
         fname: Yup.string().required(),
         lname: Yup.string().required(),
-        email: Yup.string().required(),
-        password: Yup.string().required()
+        email: Yup.string().email().required(),
+        password: Yup.string().min(6).max(16).required()
     }),
 
     handleSubmit(values, {setStatus, resetForm}) {
