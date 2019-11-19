@@ -1,7 +1,7 @@
 import React from 'react';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const FormWrapper = styled.div`
 
@@ -25,6 +25,7 @@ const Login = ({errors, touched}) => {
                 {touched.password && errors.password && (
                     <p>{errors.password}</p>
                 )}
+                
                 <button type='submit'>Enter</button>
             </Form>
         </FormWrapper>

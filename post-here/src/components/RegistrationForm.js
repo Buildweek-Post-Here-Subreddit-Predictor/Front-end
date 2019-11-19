@@ -41,7 +41,7 @@ const UserForm = ({errors, touched}) => {
             {touched.password && errors.password && (
                 <p>{errors.password}</p>
             )}
-
+    
             <button type='submit'>Register</button>
         </Form>
         </FormWrapper>
@@ -81,7 +81,7 @@ const RegistrationForm = withFormik({
           })
           .catch(err => console.log(err.response))
           .finally(resetForm())
-        }
+        }     
 })(UserForm);
 
 

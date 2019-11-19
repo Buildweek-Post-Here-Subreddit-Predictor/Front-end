@@ -27,13 +27,20 @@
   flex-direction: column;
   justify-content: space-around;
   margin: auto;
-  width: 50%;
+  width: 30%;
   height: 50%;
   align-items: center;
   padding: 5%;
+
 }
 
 .form button {
-  width: 25%;
+  text-align: center;
+  width: 30%;
+  border: none;
+  border-radius: 3px;
+  background: steelblue;
+  color: whitesmoke;
+  padding:2%;
   
 }
