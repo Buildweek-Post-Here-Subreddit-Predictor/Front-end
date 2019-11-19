@@ -1,6 +1,7 @@
 
 .App {
   text-align: center;
+  height: 100vh;
 }
 
 .App-logo {
@@ -43,4 +44,11 @@
   color: whitesmoke;
   padding:2%;
   
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+  margin: auto;
 }
