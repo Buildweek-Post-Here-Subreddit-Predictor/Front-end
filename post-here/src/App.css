@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -19,4 +20,20 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  align-items: center;
+  padding: 5%;
+}
+
+.form button {
+  width: 25%;
+  
 }

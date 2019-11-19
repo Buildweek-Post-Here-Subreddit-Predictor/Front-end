@@ -1,16 +1,33 @@
 import React from 'react';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
+import styled from 'styled-components'
 
-const Login = (values) => {
+const FormWrapper = styled.div`
+
+width: 50%;
+margin: auto;
+height: 50vh;
+
+`
+
+const Login = (errors, touched) => {
+
     return(
-        <div className='loginForm'>
-            <Form>
-                <Field type='text' name='username' placeholder='username'/>
-                <Field type='password' name='password' placeholder='password'/>
+        <FormWrapper>
+            <Form className='form'>
+                <Field type='text' name='username' placeholder='Username'/>
+                {touched.username && errors.username && (
+                <p>{errors.username}</p>
+                )}
+
+                <Field type='password' name='password' placeholder='Password'/>
+                {touched.password && errors.password && (
+                <p>{errors.password}</p>
+                )}
                 <button type='submit'>Enter</button>
             </Form>
-        </div>
+        </FormWrapper>
     )
 }
 
@@ -24,18 +41,22 @@ const LoginForm = withFormik({
         }
     },
 
-    handleSubmit: (values, {setSubmitting}) => {
+    validationSchema: Yup.object().shape({
+        username: Yup.string().required(),
+        password: Yup.string().required()
+    }),
+
+    handleSubmit: (values, {resetForm}) => {
         console.log(
             {
             submittedUsername: values.username,
             submittedPassword: values.password
             })
-    },
+        return(
+            resetForm()
+        )
+    }
 
-    validationSchema: Yup.object().shape({
-        username: Yup.string().required(),
-        password: Yup.string().required()
-    })
 })(Login);
 
 export default LoginForm;

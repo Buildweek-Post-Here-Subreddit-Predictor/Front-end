@@ -2,6 +2,18 @@ import React, {useState, useEffect} from 'react';
 import {withFormik, Form, Field} from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
+import styled from 'styled-components';
+
+const FormWrapper = styled.div`
+
+width: 50%;
+margin: auto;
+height: 50vh;
+
+`
+
+
+
 
 
 const UserForm = ({errors, touched, status}) => {
@@ -11,8 +23,8 @@ const UserForm = ({errors, touched, status}) => {
     }, [status]);
 
     return (
-        <div className='registrationForm'>
-        <Form>
+        <FormWrapper>
+        <Form className='form'>
             <Field type='text' name='username' placeholder='Create Username'/>
             {touched.username && errors.username && (
                 <p>{errors.username}</p>
@@ -44,7 +56,7 @@ const UserForm = ({errors, touched, status}) => {
                 <li>Email: {user.email}</li>
             </ul>
         ))}
-        </div>
+        </FormWrapper>
         
         
     )
