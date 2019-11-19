@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {withFormik, Form, Field} from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
@@ -16,11 +16,7 @@ height: 50vh;
 
 
 
-const UserForm = ({errors, touched, status}) => {
-    const [users, setUsers] = useState([]);
-    useEffect(() => {
-        status && setUsers(users => [...users, status]);
-    }, [status]);
+const UserForm = ({errors, touched}) => {
 
     return (
         <FormWrapper>
@@ -48,14 +44,6 @@ const UserForm = ({errors, touched, status}) => {
 
             <button type='submit'>Register</button>
         </Form>
-
-        {users.map(user => (
-            <ul key={user.id}>
-                <li>UserName: {user.username}</li>
-                <li>Name: {user.fname} {user.lname}</li>
-                <li>Email: {user.email}</li>
-            </ul>
-        ))}
         </FormWrapper>
         
         

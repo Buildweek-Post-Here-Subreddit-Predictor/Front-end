@@ -11,19 +11,19 @@ height: 50vh;
 
 `
 
-const Login = (errors, touched) => {
+const Login = ({errors, touched}) => {
 
     return(
         <FormWrapper>
             <Form className='form'>
                 <Field type='text' name='username' placeholder='Username'/>
                 {touched.username && errors.username && (
-                <p>{errors.username}</p>
+                    <p>{errors.username}</p>
                 )}
 
                 <Field type='password' name='password' placeholder='Password'/>
                 {touched.password && errors.password && (
-                <p>{errors.password}</p>
+                    <p>{errors.password}</p>
                 )}
                 <button type='submit'>Enter</button>
             </Form>
@@ -44,7 +44,7 @@ const LoginForm = withFormik({
     validationSchema: Yup.object().shape({
         username: Yup.string().required(),
         password: Yup.string().required()
-    }),
+      }),
 
     handleSubmit: (values, {resetForm}) => {
         console.log(
