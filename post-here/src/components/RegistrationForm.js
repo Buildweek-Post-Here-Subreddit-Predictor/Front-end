@@ -84,7 +84,7 @@ const RegistrationForm = withFormik({
 
     handleSubmit(values, {setStatus, resetForm}) {
         axios
-          .post("https://post-here-api-apathyhill.herokuapp.com/register", values)
+          .post("https://cors-anywhere.herokuapp.com/https://post-here-api-apathyhill.herokuapp.com/register", values) //needed the CORS proxy to get it to work
           .then(res => {
             setStatus(res);
             console.log('Registration response: ',res);
