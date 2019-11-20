@@ -1,5 +1,7 @@
+
 .App {
   text-align: center;
+  height: 100vh;
 }
 
 .App-logo {
@@ -19,4 +21,34 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
+  width: 30%;
+  height: 50%;
+  align-items: center;
+  padding: 5%;
+
+}
+
+.form button {
+  text-align: center;
+  width: 30%;
+  border: none;
+  border-radius: 3px;
+  background: steelblue;
+  color: whitesmoke;
+  padding:2%;
+  
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+  margin: auto;
 }
