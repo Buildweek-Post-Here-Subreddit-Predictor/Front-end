@@ -84,10 +84,10 @@ const RegistrationForm = withFormik({
 
     handleSubmit(values, {setStatus, resetForm}) {
         axios
-          .post("https://reqres.in/api/users", values)
+          .post("https://post-here-build-week.herokuapp.com/Register", values)
           .then(res => {
-            setStatus(res.data);
-            console.log('Got a response: ',res);
+            setStatus(res);
+            console.log('Registration response: ',res);
             
           })
           .catch(err => console.log(err.response))

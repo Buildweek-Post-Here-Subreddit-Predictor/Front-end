@@ -2,6 +2,7 @@ import React from 'react';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
+import axios from 'axios'
 
 const FormWrapper = styled.div`
 
@@ -56,16 +57,17 @@ const LoginForm = withFormik({
         password: Yup.string().required()
       }),
 
-    handleSubmit: (values, {resetForm}) => {
-        console.log(
-            {
-            submittedUsername: values.username,
-            submittedPassword: values.password
-            })
-        return(
-            resetForm()
-        )
-    }
+      handleSubmit(values, {setStatus, resetForm}) {
+        axios
+          .post("https://post-here-build-week.herokuapp.com/Login", values)
+          .then(res => {
+            setStatus(res);
+            console.log('Login response: ',res);
+            
+          })
+          .catch(err => console.log(err.response))
+          .finally(resetForm())
+        }     
 
 })(Login);
 
