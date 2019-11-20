@@ -84,7 +84,7 @@ const RegistrationForm = withFormik({
 
     handleSubmit(values, {setStatus, resetForm}) {
         axios
-          .post("https://post-here-build-week.herokuapp.com/Register", values)
+          .post("https://post-here-api-apathyhill.herokuapp.com/register", values)
           .then(res => {
             setStatus(res);
             console.log('Registration response: ',res);
