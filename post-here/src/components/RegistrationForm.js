@@ -1,50 +1,61 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {withFormik, Form, Field} from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
+import styled from 'styled-components';
+
+const FormWrapper = styled.div`
+
+width: 50%;
+margin: auto;
+height: 50vh;
+
+`
+
+const InputField = styled.input`
+background: whitesmoke;
+border: 1px solid steelblue;
+border-radius: 3px;
+color: steelblue;
+`
+const Required = styled.p`
+color:red;
+`
 
 
-const UserForm = ({errors, touched, status}) => {
-    const [users, setUsers] = useState([]);
-    useEffect(() => {
-        status && setUsers(users => [...users, status]);
-    }, [status]);
+
+
+
+
+const UserForm = ({errors, touched}) => {
 
     return (
-        <div className='registrationForm'>
-        <Form>
-            <Field type='text' name='username' placeholder='Create Username'/>
+        <FormWrapper>
+        <Form className='form'>
+            <Field type='text' as={InputField} name='username' placeholder='Create Username'/>
             {touched.username && errors.username && (
-                <p>{errors.username}</p>
+                <Required>{errors.username}</Required>
             )}
-            <Field type='text' name='fname' placeholder='First Name'/>
+            <Field type='text' as={InputField} name='fname' placeholder='First Name'/>
             {touched.fname && errors.fname && (
-                <p>{errors.fname}</p>
+                <Required>{errors.fname}</Required>
             )}
-            <Field type='text' name='lname' placeholder='Last Name'/>
+            <Field type='text' as={InputField} name='lname' placeholder='Last Name'/>
             {touched.lname && errors.lname && (
-                <p>{errors.lname}</p>
+                <Required>{errors.lname}</Required>
             )}
-            <Field type='email' name='email' placeholder='Email'/>
+            <Field type='email' as={InputField} name='email' placeholder='Email'/>
             {touched.email && errors.email && (
-                <p>{errors.email}</p>
+                <Required>{errors.email}</Required>
             )}
-            <Field type='password' name='password' placeholder='Password'/>
+            <Field type='password' as={InputField} name='password' placeholder='Password'/>
             {touched.password && errors.password && (
-                <p>{errors.password}</p>
+                <Required>{errors.password}</Required>
             )}
-
+    
             <button type='submit'>Register</button>
         </Form>
-
-        {users.map(user => (
-            <ul key={user.id}>
-                <li>UserName: {user.username}</li>
-                <li>Name: {user.fname} {user.lname}</li>
-                <li>Email: {user.email}</li>
-            </ul>
-        ))}
-        </div>
+        </FormWrapper>
         
         
     )
@@ -81,7 +92,7 @@ const RegistrationForm = withFormik({
           })
           .catch(err => console.log(err.response))
           .finally(resetForm())
-        }
+        }     
 })(UserForm);
 
 
