@@ -2,7 +2,8 @@ const initialState = {
   credentials: {
     username: "",
     password: ""
-  }
+  },
+  isLoggedIn: false
 };
 
 export const userReducer = (state = initialState, action) => {
