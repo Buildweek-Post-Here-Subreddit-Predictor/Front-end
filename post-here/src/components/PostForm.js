@@ -21,7 +21,7 @@ const Post = ({ errors, touched }) => {
 };
 
 const PostForm = withFormik({
-  mapPropsToValues({ post, title }) {
+  mapPropsToValues({ post }) {
     return {
       // title: title || '',
       article: post || ""
