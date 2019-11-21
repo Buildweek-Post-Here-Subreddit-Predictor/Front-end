@@ -2,25 +2,8 @@ import React from 'react';
 import {withFormik, Form, Field} from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
-import styled from 'styled-components';
+import {FormWrapper, InputField, Required} from './ComponentStyles'
 
-const FormWrapper = styled.div`
-
-width: 50%;
-margin: auto;
-height: 50vh;
-
-`
-
-const InputField = styled.input`
-background: whitesmoke;
-border: 1px solid steelblue;
-border-radius: 3px;
-color: steelblue;
-`
-const Required = styled.p`
-color:red;
-`
 
 
 
