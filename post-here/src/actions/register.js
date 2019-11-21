@@ -5,7 +5,7 @@ export const START_REGISTER = "START_REGISTER";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 
-export const registerUser = values => dispatch => {
+export const registerUser = (values, props) => dispatch => {
   dispatch({ type: START_REGISTER });
   console.log(values);
   axios
@@ -19,6 +19,7 @@ export const registerUser = values => dispatch => {
       console.log("Registration response: ", res.config.data);
       console.log("Full Reg response: ", res);
       const token = sessionStorage.setItem("token", res.data.session_key);
+      props.history.push("/login");
     })
     .catch(err => {
       console.log(err);
