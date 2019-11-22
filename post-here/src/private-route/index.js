@@ -6,7 +6,7 @@ const PrivateRoute = ({ component: Component, props = {}, ...rest }) => {
     <Route
       {...rest}
       render={routerProps => {
-        if (sessionStorage.getItem("token")) {
+        if (localStorage.getItem("token")) {
           return <Component {...routerProps} {...props} />;
         } else {
           return <Redirect to="/login" />;

@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { withFormik, Form, Field } from "formik";
 import { connect } from "react-redux";
 
-import SearchForm from "./SearchForm";
 import { FormWrapper, InputArea } from "./ComponentStyles";
-
 import { editPost } from "../actions/editPost";
 import SearchForm from "./SearchForm";
 

@@ -5,7 +5,7 @@ import { predict } from "../actions/predict";
 import { FormWrapper, InputArea } from "./ComponentStyles";
 import PredictionCard from "./PredictionCard";
 
-const Post = ({ errors, touched }) => {
+const Post = ({ values, errors, touched }) => {
   return (
     <FormWrapper>
       <Form className="Form">
@@ -18,8 +18,8 @@ const Post = ({ errors, touched }) => {
         />
         <br />
         <button type="submit">Suggestions</button>
-        <PredictionCard />
       </Form>
+      <PredictionCard values={values} />
     </FormWrapper>
   );
 };

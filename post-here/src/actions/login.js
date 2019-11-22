@@ -18,7 +18,7 @@ export const loginUser = (values, props) => dispatch => {
       console.log("Login response: ", res.config.data);
       console.log("Login response: ", res);
 
-      const token = sessionStorage.setItem("token", res.data);
+      const token = localStorage.setItem("token", res.data);
     })
     .catch(err => {
       console.log(err);

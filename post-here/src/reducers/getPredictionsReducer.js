@@ -1,30 +1,31 @@
-import { START_SAVE, SAVE_SUCCESS, SAVE_FAILURE } from "../actions/savePost";
+import {
+  START_FETCHING,
+  FETCHING_SUCCESS,
+  FETCHING_FAILURE
+} from "../actions/fetchProfile";
 
 const initialState = {
-  post: {
-    article: "",
-    subreddit: ""
-  },
+  predictions: [],
   isFetching: false,
   error: ""
 };
 
-export const saveReducer = (state = initialState, action) => {
+export const getPredictionsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case START_SAVE:
+    case START_FETCHING:
       return {
         ...state,
         isFetching: true,
         error: ""
       };
-    case SAVE_SUCCESS:
+    case FETCHING_SUCCESS:
       return {
         ...state,
-        post: action.payload,
+        predictions: action.payload,
         isFetching: false,
         error: ""
       };
-    case SAVE_FAILURE:
+    case FETCHING_FAILURE:
       return {
         ...state,
         isFetching: false,

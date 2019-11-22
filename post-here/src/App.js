@@ -15,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <Route path="/" component={Nav} />
+      <Route exact path="/profile" />
       <Route exact path="/registration" component={RegistrationForm} />
       <Route exact path="/login" component={LoginForm} />
       <PrivateRoute exact path="/post" component={PostForm} />
