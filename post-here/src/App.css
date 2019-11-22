@@ -51,4 +51,14 @@ nav {
   justify-content: space-between;
   width: 15%;
   margin: auto;
+  margin-bottom: 5%;
+  color: whitesmoke;
+}
+.navWrapper{
+  background: steelblue;
+}
+
+.NavLink {
+  text-decoration: none;
+  color: whitesmoke;
 }
