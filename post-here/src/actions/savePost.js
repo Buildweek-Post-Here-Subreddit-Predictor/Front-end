@@ -5,16 +5,16 @@ export const START_SAVE = "START_SAVE";
 export const SAVE_SUCCESS = "SAVE_SUCCESS";
 export const SAVE_FAILURE = "SAVE_FAILURE";
 
-export const savePost = (e, values) => dispatch => {
+export const savePost = (e, post) => dispatch => {
   dispatch({ type: START_SAVE });
-  console.log("values", values);
+  console.log("post1", post);
   axiosWithAuth()
     .post(
       "https://cors-anywhere.herokuapp.com/https://post-here-api-apathyhill.herokuapp.com/add_prediction",
-      values
+      post
     ) //needed the CORS proxy to get it to work
     .then(res => {
-      console.log("values2", values);
+      console.log("post2", post);
       dispatch({ type: SAVE_SUCCESS, payload: res.data });
 
       console.log("Save response: ", res);

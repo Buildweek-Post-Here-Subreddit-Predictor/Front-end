@@ -1,16 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import { fetchProfile } from "../actions/fetchProfile";
 
+// const [posts, setPosts] = useState([
+//   {
+//     post: "title1",
+//     text: "text1"
+//   },
+//   {
+//     post: "Hello",
+//     text: "goodbye"
+//   },
+//   {
+//     post: "Friday",
+//     text: "end of buildweek"
+//   }
+// ]);
+
 const Profile = props => {
+  useEffect(() => {
+    props.fetchProfile();
+  }, []);
   return (
     <>
-      {useEffect(() => {
-        props.fetchProfile();
-      }, [])}
+      {props.predictions.map(savedPost => (
+        <>
+          <p>{savedPost.article}</p>
+          <p>{savedPost.subreddit}</p>
+        </>
+      ))}
+      {/* {props.predictions.subreddit} */}
     </>
   );
 };
 
-export default connect(null, { fetchProfile })(Profile);
+const mapStateToProps = state => {
+  return {
+    predictions: state.getPredictionsReducer.predictions
+  };
+};
+
+export default connect(mapStateToProps, { fetchProfile })(Profile);

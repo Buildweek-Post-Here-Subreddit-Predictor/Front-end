@@ -6,19 +6,26 @@ const PredictionCard = props => {
   console.log("props", props);
   return (
     <>
-      {props.prediction ? (
+      {/* {props.prediction.map(post => (
         <>
-          <p>{props.prediction}</p>
-          <button onClick={e => props.savePost(e, props.values)}>Save</button>
-          <button>Post</button>
+          <p>{post.article}</p>
+          <p>{post.prediction}</p>
         </>
-      ) : null}
+      ))} */}
+      {/* {props.prediction[0].prediction.article} */}
+      <button onClick={e => props.savePost(e, props.prediction)}>Save</button>
+      <button>Post</button>
     </>
   );
 };
 const mapStateToProps = state => {
   return {
-    prediction: state.predictReducer.prediction,
+    prediction: [
+      {
+        article: state.predictReducer.article,
+        prediction: state.predictReducer.prediction
+      }
+    ],
     isFetching: state.predictReducer.isFetching,
     error: state.predictReducer.error
   };
