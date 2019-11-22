@@ -5,7 +5,10 @@ import {
 } from "../actions/predict";
 
 const initialState = {
-  prediction: [],
+  prediction: {
+    article: "",
+    subreddit: ""
+  },
   isFetching: false,
   error: ""
 };
@@ -19,7 +22,7 @@ export const predictReducer = (state = initialState, action) => {
         error: ""
       };
     case PREDICT_SUCCESS: {
-      console.log('reducer: ',action.payload)
+      console.log("reducer: ", action.payload);
       return {
         ...state,
         isFetching: false,

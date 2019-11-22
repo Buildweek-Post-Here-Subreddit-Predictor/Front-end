@@ -1,7 +1,7 @@
 import { START_SAVE, SAVE_SUCCESS, SAVE_FAILURE } from "../actions/savePost";
 
 const initialState = {
-  post: {
+  prediction: {
     article: "",
     subreddit: ""
   },
@@ -20,7 +20,7 @@ export const saveReducer = (state = initialState, action) => {
     case SAVE_SUCCESS:
       return {
         ...state,
-        post: action.payload,
+        prediction: action.payload,
         isFetching: false,
         error: ""
       };

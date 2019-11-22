@@ -14,7 +14,7 @@ export const predict = values => dispatch => {
       values
     ) //needed the CORS proxy to get it to work
     .then(res => {
-      dispatch({ type: PREDICT_SUCCESS, payload: res.data.prediction });
+      dispatch({ type: PREDICT_SUCCESS, payload: res.data });
 
       console.log("Predict data response: ", res.config.data);
       console.log("Full predict response: ", res);
