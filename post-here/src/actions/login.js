@@ -5,7 +5,7 @@ export const START_LOGIN = "START_LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
-export const loginUser = values => dispatch => {
+export const loginUser = (values, props) => dispatch => {
   dispatch({ type: START_LOGIN });
   axios
     .post(
@@ -18,7 +18,7 @@ export const loginUser = values => dispatch => {
       console.log("Login response: ", res.config.data);
       console.log("Login response: ", res);
 
-      const token = sessionStorage.setItem("token", res.data)
+      const token = localStorage.setItem("token", res.data);
     })
     .catch(err => {
       console.log(err);

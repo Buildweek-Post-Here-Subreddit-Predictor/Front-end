@@ -18,7 +18,6 @@ export const registerUser = values => dispatch => {
 
       console.log("Registration response: ", res.config.data);
       console.log("Full Reg response: ", res);
-      const token = sessionStorage.setItem("token", res.data.session_key);
     })
     .catch(err => {
       console.log(err);

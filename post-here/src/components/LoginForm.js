@@ -54,6 +54,7 @@ const LoginForm = withFormik({
   handleSubmit(values, { props, resetForm }) {
     props.loginUser(values);
     resetForm();
+    props.history.push("/");
   }
 })(Login);
 

@@ -78,6 +78,7 @@ const RegistrationForm = withFormik({
   handleSubmit(values, { props, resetForm }) {
     props.registerUser(values);
     resetForm();
+    props.history.push("/login");
   }
 })(UserForm);
 
