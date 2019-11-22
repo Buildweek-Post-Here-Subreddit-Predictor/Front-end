@@ -10,7 +10,6 @@ export default function Nav() {
         <NavLink to="/edit">Edit</NavLink>
         <NavLink to="/registration">Register</NavLink>
         <NavLink to="/login">Login</NavLink>
-        <button onClick={sessionStorage.clear()}>Logout</button>
         {/* <SearchForm/> */}
       </nav>
     </div>

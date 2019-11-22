@@ -19,7 +19,6 @@ export const loginUser = (values, props) => dispatch => {
       console.log("Login response: ", res);
 
       const token = sessionStorage.setItem("token", res.data);
-      props.history.push("/");
     })
     .catch(err => {
       console.log(err);

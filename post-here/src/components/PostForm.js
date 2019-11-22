@@ -29,6 +29,7 @@ const PostForm = withFormik({
   },
 
   handleSubmit(values, { props, resetForm }) {
+    console.log(values);
     props.predict(values);
     resetForm();
   }
