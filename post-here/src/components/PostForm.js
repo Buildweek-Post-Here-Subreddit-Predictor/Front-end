@@ -2,35 +2,38 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import { predict } from "../actions/predict";
+import { FormWrapper, InputArea } from "./ComponentStyles";
+import PredictionCard from "./PredictionCard";
 
 const Post = ({ errors, touched }) => {
   return (
-    <Form>
-      {/* <Field name='title' placeholder='Post Title'/><br/> */}
-      <Field
-        as="textarea"
-        rows="7"
-        cols="50"
-        name="post"
-        placeholder="Create Post"
-      />
-      <br />
-      <button type="submit">Post</button>
-    </Form>
+    <FormWrapper>
+      <Form className="Form">
+        <Field
+          as={InputArea}
+          rows="7"
+          cols="50"
+          name="post"
+          placeholder="Create Post"
+        />
+        <br />
+        <button type="submit">Suggestions</button>
+        <PredictionCard />
+      </Form>
+    </FormWrapper>
   );
 };
 
 const PostForm = withFormik({
-  mapPropsToValues({ post, title }) {
+  mapPropsToValues({ post }) {
     return {
-      // title: title || '',
       article: post || ""
     };
   },
 
   handleSubmit(values, { props, resetForm }) {
-    console.log(values);
     props.predict(values);
+
     resetForm();
   }
 })(Post);

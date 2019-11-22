@@ -3,23 +3,8 @@ import { withFormik, Form, Field } from "formik";
 import { connect } from "react-redux";
 import * as Yup from "yup";
 import { registerUser } from "../actions/register";
-import styled from "styled-components";
+import {FormWrapper, InputField, Required} from './ComponentStyles';
 
-const FormWrapper = styled.div`
-  width: 50%;
-  margin: auto;
-  height: 50vh;
-`;
-
-const InputField = styled.input`
-  background: whitesmoke;
-  border: 1px solid steelblue;
-  border-radius: 3px;
-  color: steelblue;
-`;
-const Required = styled.p`
-  color: red;
-`;
 
 const UserForm = ({ errors, touched }) => {
   return (

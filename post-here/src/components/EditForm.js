@@ -2,27 +2,28 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import { connect } from "react-redux";
 
+import SearchForm from "./SearchForm";
+import { FormWrapper, InputArea } from "./ComponentStyles";
+
 import { editPost } from "../actions/editPost";
 import SearchForm from "./SearchForm";
 
 const Edit = () => {
   return (
-    <div>
+    <FormWrapper>
       <SearchForm />
       <Form>
-        {/* <Field name='editTitle'/><br/> */}
-        <Field as="textarea" rows="7" cols="50" name="editPost" />
+        <Field as={InputArea} rows="7" cols="50" name="editPost" />
         <br />
         <button type="submit">Done</button>
       </Form>
-    </div>
+    </FormWrapper>
   );
 };
 
 const EditForm = withFormik({
-  mapPropsToValues({ editPost, editTitle }) {
+  mapPropsToValues({ editPost }) {
     return {
-      // editTitle: editTitle || '',
       editPost: editPost || ""
     };
   },
