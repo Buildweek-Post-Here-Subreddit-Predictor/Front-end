@@ -13,8 +13,15 @@ border: 1px solid steelblue;
 border-radius: 3px;
 color: steelblue;
 `
+export const InputArea = styled.textarea`
+background: whitesmoke;
+border: 1px solid steelblue;
+border-radius: 3px;
+color: steelblue;
+`
 
 export const Required = styled.p`
 color:red;
 `
+
 

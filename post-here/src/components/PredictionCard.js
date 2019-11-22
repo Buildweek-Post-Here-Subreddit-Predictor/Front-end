@@ -1,13 +1,23 @@
 import React from 'react';
-import {predict} from '../actions/predict';
-import {connect} from 'react-redux';
+import {connect} from 'react-redux'
+import {Form} from 'formik'
 
 const PredictionCard = (props)=>{
-    <ul>
-        {props.predict(values).map(value=>{
-        <li>{value}</li>
-        })}
-    </ul>
+    
+    return(
+        <Form>
+            <p>{props.prediction}</p>
+            <button>Save</button>
+            <button>Post</button>
+        </Form>
+    )
+    
 }
-
-export default connect(null, {predict})(PredictionCard);
+const mapStateToProps = state => {
+    return {
+      prediction: state.predictReducer.prediction,
+      isFetching: state.isFetching,
+      error: state.error
+    };
+  };
+  export default connect(mapStateToProps,{})(PredictionCard)

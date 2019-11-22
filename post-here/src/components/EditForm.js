@@ -3,19 +3,19 @@ import {withFormik, Form, Field} from 'formik';
 import axios from 'axios';
 
 import SearchForm from './SearchForm';
+import { FormWrapper, InputArea } from './ComponentStyles';
 
 
 
 const Edit = () => {
     return (
-        <div>
+        <FormWrapper>
             <SearchForm/>
             <Form>
-                <Field name='editTitle'/><br/>
-                <Field as='textarea' rows='7' cols='50' name='editPost'/><br/>
+                <Field as={InputArea} rows='7' cols='50' name='editPost'/><br/>
                 <button type='submit'>Done</button>
             </Form>
-        </div>
+        </FormWrapper>
         
     )
 }
@@ -23,7 +23,6 @@ const Edit = () => {
 const EditForm = withFormik({
     mapPropsToValues({editPost, editTitle}){
         return {
-            editTitle: editTitle || '',
             editPost: editPost || ''
         }
         
